@@ -1,10 +1,7 @@
 import './header.css'
 import './Homepage.css'
 // logo
-import logowhite from '../../assets/logo-white.png'
 import mobilelogwhite from '../../assets/mobile-logo-white.png'
-import mobilelog from "../../assets/mobile-logo.png"
-import SLogo from "../../assets/S letter.png"
 
 
 // icons
@@ -29,6 +26,7 @@ function Homepage(){
 
   return(
     <>
+    <title>Ecommerce Project</title>
     <div class="header">
       <div class="left-section">
         <a href="index.html" class="header-link">
