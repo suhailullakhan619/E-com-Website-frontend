@@ -1,12 +1,6 @@
-import './header.css'
 import './Homepage.css'
 // logo
-import mobilelogwhite from '../../assets/mobile-logo-white.png'
 
-
-// icons
-import searchicon from "../../assets/icons/search-icon.png"
-import cartIcon from "../../assets/icons/cart-icon.png"
 import checkmarks from "../../assets/icons/checkmark.png"
 
 
@@ -20,6 +14,7 @@ import basketballrating from "../../assets/ratings/rating-40.png"
 
 import planecottontshirt from "../../assets/products/adults-plain-cotton-tshirt-2-pack-teal.jpg"
 import planecottontshirtrating from "../../assets/ratings/rating-45.png"
+import Header from '../header/Header'
 
 
 function Homepage(){
@@ -27,64 +22,33 @@ function Homepage(){
   return(
     <>
     <title>Ecommerce Project</title>
-    <div class="header">
-      <div class="left-section">
-        <a href="index.html" class="header-link">
-          <p className='logowithname'><img class="logo"
-            src= {mobilelogwhite}/>SuhailUllaKhan</p>
-          
-          <img class="mobile-logo"
-            src={mobilelogwhite} />
-        </a>
-      </div>
+      <Header/>
 
-      <div class="middle-section">
-        <input class="search-bar" type="text" placeholder="Search" />
-
-        <button class="search-button">
-          <img class="search-icon" src={searchicon} />
-        </button>
-      </div>
-
-      <div class="right-section">
-        <a class="orders-link header-link" href="orders.html">
-
-          <span class="orders-text">Orders</span>
-        </a>
-
-        <a class="cart-link header-link" href="checkout.html">
-          <img class="cart-icon" src={cartIcon} />
-          <div class="cart-quantity">3</div>
-          <div class="cart-text">Cart</div>
-        </a>
-      </div>
-    </div>
-
-    <div class="home-page">
-      <div class="products-grid">
-        <div class="product-container">
-          <div class="product-image-container">
-            <img class="product-image"
+    <div className="home-page">
+      <div className="products-grid">
+        <div className="product-container">
+          <div className="product-image-container">
+            <img className="product-image"
               src={scoks6pair} />
           </div>
 
-          <div class="product-name limit-text-to-2-lines">
+          <div className="product-name limit-text-to-2-lines">
             Black and Gray Athletic Cotton Socks - 6 Pairs
           </div>
 
-          <div class="product-rating-container">
-            <img class="product-rating-stars"
+          <div className="product-rating-container">
+            <img className="product-rating-stars"
               src={scoksrating} />
-            <div class="product-rating-count link-primary">
+            <div className="product-rating-count link-primary">
               87
             </div>
           </div>
 
-          <div class="product-price">
+          <div className="product-price">
             $10.90
           </div>
 
-          <div class="product-quantity-container">
+          <div className="product-quantity-container">
             <select>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -99,41 +63,41 @@ function Homepage(){
             </select>
           </div>
 
-          <div class="product-spacer"></div>
+          <div className="product-spacer"></div>
 
-          <div class="added-to-cart">
+          <div className="added-to-cart">
             <img src={checkmarks} />
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary">
+          <button className="add-to-cart-button button-primary">
             Add to Cart
           </button>
         </div>
 
-        <div class="product-container">
-          <div class="product-image-container">
-            <img class="product-image"
+        <div className="product-container">
+          <div className="product-image-container">
+            <img className="product-image"
               src={basketballimg} />
           </div>
 
-          <div class="product-name limit-text-to-2-lines">
+          <div className="product-name limit-text-to-2-lines">
             Intermediate Size Basketball
           </div>
 
-          <div class="product-rating-container">
-            <img class="product-rating-stars"
+          <div className="product-rating-container">
+            <img className="product-rating-stars"
               src={basketballrating} />
-            <div class="product-rating-count link-primary">
+            <div className="product-rating-count link-primary">
               127
             </div>
           </div>
 
-          <div class="product-price">
+          <div className="product-price">
             $20.95
           </div>
 
-          <div class="product-quantity-container">
+          <div className="product-quantity-container">
             <select>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -148,41 +112,41 @@ function Homepage(){
             </select>
           </div>
 
-          <div class="product-spacer"></div>
+          <div className="product-spacer"></div>
 
-          <div class="added-to-cart">
+          <div className="added-to-cart">
             <img src={checkmarks} />
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary">
+          <button className="add-to-cart-button button-primary">
             Add to Cart
           </button>
         </div>
 
-        <div class="product-container">
-          <div class="product-image-container">
-            <img class="product-image"
+        <div className="product-container">
+          <div className="product-image-container">
+            <img className="product-image"
               src={planecottontshirt} />
           </div>
 
-          <div class="product-name limit-text-to-2-lines">
+          <div className="product-name limit-text-to-2-lines">
             Adults Plain Cotton T-Shirt - 2 Pack
           </div>
 
-          <div class="product-rating-container">
-            <img class="product-rating-stars"
+          <div className="product-rating-container">
+            <img className="product-rating-stars"
               src={planecottontshirtrating} />
-            <div class="product-rating-count link-primary">
+            <div className="product-rating-count link-primary">
               56
             </div>
           </div>
 
-          <div class="product-price">
+          <div className="product-price">
             $7.99
           </div>
 
-          <div class="product-quantity-container">
+          <div className="product-quantity-container">
             <select>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -197,14 +161,14 @@ function Homepage(){
             </select>
           </div>
 
-          <div class="product-spacer"></div>
+          <div className="product-spacer"></div>
 
-          <div class="added-to-cart">
+          <div className="added-to-cart">
             <img src={checkmarks} />
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary">
+          <button className="add-to-cart-button button-primary">
             Add to Cart
           </button>
         </div>

@@ -4,6 +4,7 @@ import mobilelogo from '../../assets/mobile-logo.png'
 import checkoutlogo from '../../assets/icons/checkout-lock-icon.png'
 import scocksimg from '../../assets/products/athletic-cotton-socks-6-pairs.jpg'
 import basketballimg from '../../assets/products/intermediate-composite-basketball.jpg'
+import { Link } from 'react-router'
 
 
 
@@ -15,16 +16,16 @@ function Checkoutpage(){
      <div className="checkout-header">
       <div className="header-content">
         <div className="checkout-header-left-section">
-          <a href="index.html" style={{textDecoration:'none'}}>
+          <Link to="/" style={{textDecoration:'none'}}>
             <p className='logowithname'>
             <img className="logo" src={mobilelogo} />SuhailUllaKhan</p>
             <img className="mobile-logo" src={mobilelogo} />
-          </a>
+          </Link>
         </div>
 
         <div className="checkout-header-middle-section">
-          Checkout (<a className="return-to-home-link"
-            href="index.html">3 items</a>)
+          Checkout (<Link className="return-to-home-link"
+            to="/">3 items</Link>)
         </div>
 
         <div className="checkout-header-right-section">
