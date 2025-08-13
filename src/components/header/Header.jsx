@@ -24,9 +24,11 @@ const Header = () => {
       <div className="middle-section">
         <input className="search-bar" type="text" placeholder="Search" />
 
+         <Link to='*'>
         <button className="search-button">
           <img className="search-icon" src={searchicon} />
         </button>
+        </Link>
       </div>
 
       <div className="right-section">

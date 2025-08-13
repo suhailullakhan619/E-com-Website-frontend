@@ -3,6 +3,7 @@
 import React from 'react'
 import Header from "../header/Header";
 import './page.css'
+import { Link } from 'react-router';
 const Pagenotfound = () => {
   return (
     <>
@@ -17,7 +18,9 @@ const Pagenotfound = () => {
       <div className="not-found-message">
        404 Page not found
       </div>
-   
+      <Link to='/' className='backtohomepage'>
+       <p>Back to home page</p>
+       </Link>
     </>
   )
 }

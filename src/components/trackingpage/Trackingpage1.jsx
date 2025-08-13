@@ -11,7 +11,7 @@ import scoks6pair from "../../assets/products/athletic-cotton-socks-6-pairs.jpg"
 import Header from '../header/Header'
 import { Link } from 'react-router'
 
-const Trackingpage = () => {
+const Trackingpage1 = () => {
   return (
     <>
     <title>Order Tracking</title>
@@ -58,4 +58,4 @@ const Trackingpage = () => {
   )
 }
 
-export default Trackingpage
+export default Trackingpage1
