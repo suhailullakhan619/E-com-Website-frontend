@@ -4,18 +4,12 @@
 
 
 import React from 'react'
-import './header.css'
 import './tracking.css'
-import mobilelogwhite from '../../assets/mobile-logo-white.png'
-
-
-// icons
-import searchicon from "../../assets/icons/search-icon.png"
-import cartIcon from "../../assets/icons/cart-icon.png"
 
 
 import scoks6pair from "../../assets/products/athletic-cotton-socks-6-pairs.jpg"
 import Header from '../header/Header'
+import { Link } from 'react-router'
 
 const Trackingpage = () => {
   return (
@@ -25,9 +19,9 @@ const Trackingpage = () => {
 
     <div className="tracking-page">
       <div className="order-tracking">
-        <a className="back-to-orders-link link-primary" href="orders">
+        <Link className="back-to-orders-link link-primary" to="/orders">
           View all orders
-        </a>
+        </Link>
 
         <div className="delivery-date">
           Arriving on Monday, June 13

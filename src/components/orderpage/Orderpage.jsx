@@ -17,6 +17,8 @@ function Orderpage(){
   return (
     <>
      <title>Orders</title>
+     <link rel="icon" type="image/svg+xml" href="orders-favicon.png" />
+
     <Header/>
 
     <div className="orders-page">
@@ -65,7 +67,7 @@ function Orderpage(){
             </div>
 
             <div className="product-actions">
-              <Link to="tracking">
+              <Link to="/tracking">
                 <button className="track-package-button button-secondary">
                   Track package
                 </button>
@@ -93,7 +95,7 @@ function Orderpage(){
             </div>
 
             <div className="product-actions">
-              <Link to="tracking">
+              <Link to="/tracking">
                 <button className="track-package-button button-secondary">
                   Track package
                 </button>
@@ -144,7 +146,7 @@ function Orderpage(){
             </div>
 
             <div className="product-actions">
-              <Link to="tracking">
+              <Link to="/tracking">
                 <button className="track-package-button button-secondary">
                   Track package
                 </button>

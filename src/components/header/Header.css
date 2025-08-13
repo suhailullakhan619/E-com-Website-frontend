@@ -95,9 +95,12 @@
   border-bottom-left-radius: 5px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  background-color: white;
+  color: black;
 }
 
 .header .search-button {
+  display: flex;
   background-color: rgb(186, 255, 190);
   border: none;
   width: 45px;
@@ -105,6 +108,8 @@
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
 }
 
 .header .search-icon {
