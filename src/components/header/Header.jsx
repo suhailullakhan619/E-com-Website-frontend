@@ -7,7 +7,13 @@ import searchicon from "/images/icons/search-icon.png"
 import cartIcon from "/images/icons/cart-icon.png"
 import { Link, NavLink } from 'react-router'
 import './Header.css'
-const Header = () => {
+
+const Header = ({cart}) => {
+let totalquantity =0;
+cart.forEach((cartitem)=>{
+  totalquantity+=cartitem.quantity;
+})
+
   return (
     <>
      <div className="header">
@@ -39,7 +45,7 @@ const Header = () => {
 
         <NavLink className="cart-link header-link" to="/checkout">
           <img className="cart-icon" src={cartIcon} />
-          <div className="cart-quantity">3</div>
+          <div className="cart-quantity">{totalquantity}</div>
           <div className="cart-text">Cart</div>
         </NavLink>
       </div>

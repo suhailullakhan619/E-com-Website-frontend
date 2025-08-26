@@ -1,29 +1,35 @@
 import './Homepage.css'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 import {products} from '../../data/products.js'
 // logo
 
 import checkmarks from "/images/icons/checkmark.png"
-// product image and rating
-
-// import scoks6pair from "../../assets/products/athletic-cotton-socks-6-pairs.jpg"
-// import scoksrating from "../../assets/ratings/rating-45.png"
-
-// import basketballimg from "../../assets/products/intermediate-composite-basketball.jpg"
-// import basketballrating from "../../assets/ratings/rating-40.png"
-
-// import planecottontshirt from "../../assets/products/adults-plain-cotton-tshirt-2-pack-teal.jpg"
-// import planecottontshirtrating from "../../assets/ratings/rating-45.png"
 import Header from '../header/Header'
 
 
+
 function Homepage(){
+const [products,setProducts]=useState([])
+const [cart,setCart]=useState([])
+  useEffect(()=>{
+  axios.get('http://localhost:3000/api/products')
+  .then((data)=>setProducts(data.data))
+  .catch((err)=>console.log('Products not fetched',err))
+  axios.get('http://localhost:3000/api/cart-items')
+  .then((data)=>setCart(data.data))
+  .catch((err)=>console.log('cart-items not fetched',err))
+  },[])
+
+
+
 
   return(
     <>
     <title>Ecommerce Project</title>
      <link rel="icon" type="image/svg+xml" href="home-favicon.png" />
-      <Header/>
+      <Header cart={cart}/>
 
     <div className="home-page">
       <div className="products-grid">
