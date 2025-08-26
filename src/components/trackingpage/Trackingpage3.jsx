@@ -3,7 +3,7 @@
 import React from 'react'
 import './tracking.css'
 
-import basketballimg from "../../assets/products/intermediate-composite-basketball.jpg"
+import basketballimg from "/images/products/intermediate-composite-basketball.jpg"
 import Header from '../header/Header'
 import { Link } from 'react-router'
 

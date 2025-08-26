@@ -1,10 +1,10 @@
 import React from 'react'
-import mobilelogwhite from '../../assets/mobile-logo-white.png'
+import mobilelogwhite from '/images/mobile-logo-white.png'
 
 
 // icons
-import searchicon from "../../assets/icons/search-icon.png"
-import cartIcon from "../../assets/icons/cart-icon.png"
+import searchicon from "/images/icons/search-icon.png"
+import cartIcon from "/images/icons/cart-icon.png"
 import { Link, NavLink } from 'react-router'
 import './Header.css'
 const Header = () => {

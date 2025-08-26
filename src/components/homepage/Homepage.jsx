@@ -1,19 +1,19 @@
 import './Homepage.css'
+
+import {products} from '../../data/products.js'
 // logo
 
-import checkmarks from "../../assets/icons/checkmark.png"
-
-
+import checkmarks from "/images/icons/checkmark.png"
 // product image and rating
 
-import scoks6pair from "../../assets/products/athletic-cotton-socks-6-pairs.jpg"
-import scoksrating from "../../assets/ratings/rating-45.png"
+// import scoks6pair from "../../assets/products/athletic-cotton-socks-6-pairs.jpg"
+// import scoksrating from "../../assets/ratings/rating-45.png"
 
-import basketballimg from "../../assets/products/intermediate-composite-basketball.jpg"
-import basketballrating from "../../assets/ratings/rating-40.png"
+// import basketballimg from "../../assets/products/intermediate-composite-basketball.jpg"
+// import basketballrating from "../../assets/ratings/rating-40.png"
 
-import planecottontshirt from "../../assets/products/adults-plain-cotton-tshirt-2-pack-teal.jpg"
-import planecottontshirtrating from "../../assets/ratings/rating-45.png"
+// import planecottontshirt from "../../assets/products/adults-plain-cotton-tshirt-2-pack-teal.jpg"
+// import planecottontshirtrating from "../../assets/ratings/rating-45.png"
 import Header from '../header/Header'
 
 
@@ -27,26 +27,29 @@ function Homepage(){
 
     <div className="home-page">
       <div className="products-grid">
-        <div className="product-container">
+        {products.map((products)=>{
+          return  (
+            <>
+            <div key={products.id} className="product-container">
           <div className="product-image-container">
             <img className="product-image"
-              src={scoks6pair} />
+              src={products.image} />
           </div>
 
           <div className="product-name limit-text-to-2-lines">
-            Black and Gray Athletic Cotton Socks - 6 Pairs
+            {products.name}
           </div>
 
           <div className="product-rating-container">
             <img className="product-rating-stars"
-              src={scoksrating} />
+              src={`/images/ratings/rating-${products.rating.stars*10}.png`} />
             <div className="product-rating-count link-primary">
-              87
+              {products.rating.count}
             </div>
           </div>
 
           <div className="product-price">
-            $10.90
+           &#8377;{Math.floor(products.priceCents/100*87)}
           </div>
 
           <div className="product-quantity-container">
@@ -75,8 +78,13 @@ function Homepage(){
             Add to Cart
           </button>
         </div>
+            </>
 
-        <div className="product-container">
+          )
+        })}
+        
+
+        {/* <div className="product-container">
           <div className="product-image-container">
             <img className="product-image"
               src={basketballimg} />
@@ -172,7 +180,7 @@ function Homepage(){
           <button className="add-to-cart-button button-primary">
             Add to Cart
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
     </>

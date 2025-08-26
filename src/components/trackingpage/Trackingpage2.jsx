@@ -4,7 +4,7 @@ import React from 'react'
 import './tracking.css'
 
 
-import planecottontshirt from "../../assets/products/adults-plain-cotton-tshirt-2-pack-teal.jpg"
+import planecottontshirt from "/images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg"
 import Header from '../header/Header'
 import { Link } from 'react-router'
 

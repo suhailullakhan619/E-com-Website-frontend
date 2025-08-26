@@ -1,9 +1,9 @@
 
 import './Checkout.css'
-import mobilelogo from '../../assets/mobile-logo.png'
-import checkoutlogo from '../../assets/icons/checkout-lock-icon.png'
-import scocksimg from '../../assets/products/athletic-cotton-socks-6-pairs.jpg'
-import basketballimg from '../../assets/products/intermediate-composite-basketball.jpg'
+import mobilelogo from '/images/mobile-logo.png'
+import checkoutlogo from '/images/icons/checkout-lock-icon.png'
+import scocksimg from '/images/products/athletic-cotton-socks-6-pairs.jpg'
+import basketballimg from '/images/products/intermediate-composite-basketball.jpg'
 import { Link } from 'react-router'
 import Pagenotfound from '../pagenotfound/Pagenotfound'
 

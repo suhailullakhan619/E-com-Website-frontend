@@ -7,7 +7,7 @@ import React from 'react'
 import './tracking.css'
 
 
-import scoks6pair from "../../assets/products/athletic-cotton-socks-6-pairs.jpg"
+import scoks6pair from "/images/products/athletic-cotton-socks-6-pairs.jpg"
 import Header from '../header/Header'
 import { Link } from 'react-router'
 

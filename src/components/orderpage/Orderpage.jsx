@@ -1,15 +1,15 @@
 
 import './Orderpage.css'
 
-import buyagainicon from '../../assets/icons/buy-again.png'
+import buyagainicon from '/images/icons/buy-again.png'
 
 // product image and rating
 
-import scoks6pair from "../../assets/products/athletic-cotton-socks-6-pairs.jpg"
+import scoks6pair from "/images/products/athletic-cotton-socks-6-pairs.jpg"
 
-import basketballimg from "../../assets/products/intermediate-composite-basketball.jpg"
+import basketballimg from "/images/products/intermediate-composite-basketball.jpg"
 
-import planecottontshirt from "../../assets/products/adults-plain-cotton-tshirt-2-pack-teal.jpg"
+import planecottontshirt from "/images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg"
 import Header from '../header/Header'
 import { Link } from 'react-router'
 function Orderpage(){
