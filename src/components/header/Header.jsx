@@ -1,14 +1,10 @@
 import React from 'react'
-import mobilelogwhite from '/images/mobile-logo-white.png'
-
-
+'use client'
 // icons
-import searchicon from "/images/icons/search-icon.png"
-import cartIcon from "/images/icons/cart-icon.png"
-import { Link, NavLink } from 'react-router'
+import { Link, NavLink } from 'react-router-dom'
 import './Header.css'
 
-const Header = ({cart}) => {
+const Header = ({cart=[]}) => {
 let totalquantity =0;
 cart.forEach((cartitem)=>{
   totalquantity+=cartitem.quantity;
@@ -20,10 +16,10 @@ cart.forEach((cartitem)=>{
       <div className="left-section">
         <NavLink to="/" className="header-link">
           <p className='logowithname'><img className="logo"
-            src= {mobilelogwhite}/>SuhailUllaKhan</p>
+            src= {'/images/mobile-logo-white.png'}/>SuhailUllaKhan</p>
           
           <img className="mobile-logo"
-            src={mobilelogwhite} />
+            src={'/images/mobile-logo-white.png'} />
         </NavLink>
       </div>
 
@@ -32,7 +28,7 @@ cart.forEach((cartitem)=>{
 
          <Link to='*'>
         <button className="search-button">
-          <img className="search-icon" src={searchicon} />
+          <img className="search-icon" src={"/images/icons/search-icon.png"} />
         </button>
         </Link>
       </div>
@@ -44,7 +40,7 @@ cart.forEach((cartitem)=>{
         </NavLink>
 
         <NavLink className="cart-link header-link" to="/checkout">
-          <img className="cart-icon" src={cartIcon} />
+          <img className="cart-icon" src={ "/images/icons/cart-icon.png"} />
           <div className="cart-quantity">{totalquantity}</div>
           <div className="cart-text">Cart</div>
         </NavLink>

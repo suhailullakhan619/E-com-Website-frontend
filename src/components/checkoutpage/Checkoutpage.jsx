@@ -1,15 +1,11 @@
 
 import './Checkout.css'
-import mobilelogo from '/images/mobile-logo.png'
-import checkoutlogo from '/images/icons/checkout-lock-icon.png'
-import scocksimg from '/images/products/athletic-cotton-socks-6-pairs.jpg'
-import basketballimg from '/images/products/intermediate-composite-basketball.jpg'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import Pagenotfound from '../pagenotfound/Pagenotfound'
 
 
 
-function Checkoutpage(){
+function Checkoutpage({cart}){
 
   return (
    <>
@@ -21,8 +17,8 @@ function Checkoutpage(){
         <div className="checkout-header-left-section">
           <Link to="/" style={{textDecoration:'none'}}>
             <p className='logowithname'>
-            <img className="logo" src={mobilelogo} />SuhailUllaKhan</p>
-            <img className="mobile-logo" src={mobilelogo} />
+            <img className="logo" src={'/images/mobile-logo.png'} />SuhailUllaKhan</p>
+            <img className="mobile-logo" src={'/images/mobile-logo.png'} />
           </Link>
         </div>
 
@@ -32,7 +28,7 @@ function Checkoutpage(){
         </div>
 
         <div className="checkout-header-right-section">
-          <img src={checkoutlogo} />
+          <img src={'/images/icons/checkout-lock-icon.png'} />
         </div>
       </div>
     </div>
@@ -49,7 +45,7 @@ function Checkoutpage(){
 
             <div className="cart-item-details-grid">
               <img className="product-image"
-                src={scocksimg} />
+                src={'/images/products/athletic-cotton-socks-6-pairs.jpg'} />
 
               <div className="cart-item-details">
                 <div className="product-name">
@@ -125,7 +121,7 @@ function Checkoutpage(){
 
             <div className="cart-item-details-grid">
               <img className="product-image"
-                src={basketballimg} />
+                src={'/images/products/intermediate-composite-basketball.jpg'} />
 
               <div className="cart-item-details">
                 <div className="product-name">

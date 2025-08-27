@@ -7,9 +7,8 @@ import React from 'react'
 import './tracking.css'
 
 
-import scoks6pair from "/images/products/athletic-cotton-socks-6-pairs.jpg"
 import Header from '../header/Header'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 
 const Trackingpage1 = () => {
   return (
@@ -35,7 +34,7 @@ const Trackingpage1 = () => {
           Quantity: 1
         </div>
 
-        <img className="product-image" src={scoks6pair} />
+        <img className="product-image" src={ "/images/products/athletic-cotton-socks-6-pairs.jpg"} />
 
         <div className="progress-labels-container">
           <div className="progress-label">

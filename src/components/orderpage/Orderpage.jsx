@@ -1,21 +1,15 @@
-
+'use client'
 import './Orderpage.css'
 
-import buyagainicon from '/images/icons/buy-again.png'
 
 // product image and rating
-
-import scoks6pair from "/images/products/athletic-cotton-socks-6-pairs.jpg"
-
-import basketballimg from "/images/products/intermediate-composite-basketball.jpg"
-
-import planecottontshirt from "/images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg"
 import Header from '../header/Header'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 function Orderpage(){
 
   return (
     <>
+    
      <title>Orders</title>
      <link rel="icon" type="image/svg+xml" href="orders-favicon.png" />
 
@@ -47,7 +41,7 @@ function Orderpage(){
 
           <div className="order-details-grid">
             <div className="product-image-container">
-              <img src={scoks6pair} />
+              <img src={"/images/products/athletic-cotton-socks-6-pairs.jpg"} />
             </div>
 
             <div className="product-details">
@@ -61,7 +55,7 @@ function Orderpage(){
                 Quantity: 1
               </div>
               <button className="buy-again-button button-primary">
-                <img className="buy-again-icon" src={buyagainicon} />
+                <img className="buy-again-icon" src={'/images/icons/buy-again.png'} />
                 <span className="buy-again-message">Add to Cart</span>
               </button>
             </div>
@@ -75,7 +69,7 @@ function Orderpage(){
             </div>
 
             <div className="product-image-container">
-              <img src={planecottontshirt} />
+              <img src={"/images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg"} />
             </div>
 
             <div className="product-details">
@@ -89,7 +83,7 @@ function Orderpage(){
                 Quantity: 2
               </div>
               <button className="buy-again-button button-primary">
-                <img className="buy-again-icon" src={buyagainicon} />
+                <img className="buy-again-icon" src={'/images/icons/buy-again.png'} />
                 <span className="buy-again-message">Add to Cart</span>
               </button>
             </div>
@@ -126,7 +120,7 @@ function Orderpage(){
 
           <div className="order-details-grid">
             <div className="product-image-container">
-              <img src={basketballimg} />
+              <img src={"/images/products/intermediate-composite-basketball.jpg"} />
             </div>
 
             <div className="product-details">
@@ -140,7 +134,7 @@ function Orderpage(){
                 Quantity: 2
               </div>
               <button className="buy-again-button button-primary">
-                <img className="buy-again-icon" src={buyagainicon} />
+                <img className="buy-again-icon" src={'/images/icons/buy-again.png'} />
                 <span className="buy-again-message">Add to Cart</span>
               </button>
             </div>

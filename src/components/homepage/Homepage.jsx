@@ -2,24 +2,18 @@ import './Homepage.css'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-import {products} from '../../data/products.js'
 // logo
 
-import checkmarks from "/images/icons/checkmark.png"
 import Header from '../header/Header'
 
 
 
-function Homepage(){
+function Homepage({cart}){
 const [products,setProducts]=useState([])
-const [cart,setCart]=useState([])
   useEffect(()=>{
-  axios.get('http://localhost:3000/api/products')
+  axios.get('/api/products')
   .then((data)=>setProducts(data.data))
   .catch((err)=>console.log('Products not fetched',err))
-  axios.get('http://localhost:3000/api/cart-items')
-  .then((data)=>setCart(data.data))
-  .catch((err)=>console.log('cart-items not fetched',err))
   },[])
 
 
@@ -76,7 +70,7 @@ const [cart,setCart]=useState([])
           <div className="product-spacer"></div>
 
           <div className="added-to-cart">
-            <img src={checkmarks} />
+            <img src={'/images/icons/checkmark.png'} />
             Added
           </div>
 

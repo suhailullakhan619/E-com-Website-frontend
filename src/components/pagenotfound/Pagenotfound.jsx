@@ -3,7 +3,7 @@
 import React from 'react'
 import Header from "../header/Header";
 import './page.css'
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 const Pagenotfound = () => {
   return (
     <>
