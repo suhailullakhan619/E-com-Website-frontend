@@ -1,7 +1,7 @@
 import './Homepage.css'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-
+import { amount } from '../../utils/amount'
 // logo
 
 import Header from '../header/Header'
@@ -49,7 +49,7 @@ const [products,setProducts]=useState([])
           </div>
 
           <div className="product-price">
-           &#8377;{Math.floor(products.priceCents/100*87)}
+           {amount(products.priceCents)}
           </div>
 
           <div className="product-quantity-container">

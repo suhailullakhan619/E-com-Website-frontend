@@ -16,7 +16,7 @@ import Pagenotfound from './components/pagenotfound/Pagenotfound'
 function App() {
 const [cart,setCart]=useState([])
  useEffect(()=>{
-  axios.get('/api/cart-items')
+  axios.get('/api/cart-items?expand=product')
   .then((data)=>setCart(data.data))
   .catch((err)=>console.log('cart-items not fetched',err))
  },[])
