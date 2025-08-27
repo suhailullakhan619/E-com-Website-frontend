@@ -27,7 +27,7 @@ const [cart,setCart]=useState([])
       <Routes>
         <Route path="/" element={<Homepage cart={cart} />} />
         <Route path="/checkout" element={<Checkoutpage cart={cart} />} />
-        <Route path="/orders" element={<Orderpage/>} />
+        <Route path="/orders" element={<Orderpage cart={cart}/>} />
         <Route path="/tracking1" element={<Trackingpage1 />} />
         <Route path="/tracking2" element={<Trackingpage2 />} />
         <Route path="/tracking3" element={<Trackingpage3 />} />
