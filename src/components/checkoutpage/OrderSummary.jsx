@@ -2,8 +2,11 @@ import './Checkout.css'
 import dayjs from 'dayjs'
 import { amount } from '../../utils/amount'
 import DeliveryOptions from './DeliveryOptions'
+import axios from 'axios'
 
-const OrderSummary = ({cart,deliveryOption,loadCart}) => {
+const OrderSummary = ({ cart, deliveryOption, loadCart }) => {
+
+
 
   return (
     <div className="order-summary">
@@ -11,6 +14,18 @@ const OrderSummary = ({cart,deliveryOption,loadCart}) => {
         const selectDeliveryOption = deliveryOption.find((deliveryOption) => {
           return deliveryOption.id === cartitem.deliveryOptionId;
         })
+
+        const deleteQuantity=async()=> {
+         await axios.delete(`/api/cart-items/${cartitem.productId}`)
+         await loadCart()
+        }
+
+        const updateQuantity=async (newQuantity)=>{
+          await axios.put(`/api/cart-items/${cartitem.productId}`,{
+            quantity:newQuantity,
+          });
+          await loadCart()
+        }
 
         return (
           <>
@@ -34,16 +49,16 @@ const OrderSummary = ({cart,deliveryOption,loadCart}) => {
                     <span>
                       Quantity: <span className="quantity-label">{cartitem.quantity}</span>
                     </span>
-                    <span className="update-quantity-link link-primary">
+                    <span className="update-quantity-link link-primary" onClick={()=>updateQuantity(cartitem.quantity+1)}>
                       Update
                     </span>
-                    <span className="delete-quantity-link link-primary">
+                    <span className="delete-quantity-link link-primary" onClick={deleteQuantity}>
                       Delete
                     </span>
                   </div>
                 </div>
 
-               <DeliveryOptions cartitem={cartitem} deliveryOption={deliveryOption} loadCart={loadCart} />
+                <DeliveryOptions cartitem={cartitem} deliveryOption={deliveryOption} loadCart={loadCart} />
 
               </div>
             </div>
