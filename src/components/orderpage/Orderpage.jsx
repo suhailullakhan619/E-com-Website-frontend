@@ -10,20 +10,21 @@ import dayjs from 'dayjs'
 import { amount } from '../../utils/amount'
 import axios from 'axios'
 import { useState } from 'react'
-function Orderpage({ cart }) {
-const [order, setOrders] = useState([])
+function Orderpage({ cart, loadCart }) {
+  const [order, setOrders] = useState([])
 
-useEffect(()=>{
-const getOrders = async () => {
-        try {
-          const ordersResponse = await axios.get('http://localhost:3000/api/orders?expand=products')
-          setOrders(ordersResponse.data)
-        }
-        catch (err) { console.log('Something wentWrong', err) }
+  useEffect(() => {
+    const getOrders = async () => {
+      try {
+        const ordersResponse = await axios.get('http://localhost:3000/api/orders?expand=products')
+        setOrders(ordersResponse.data)
       }
-      getOrders()
-},[])
-    
+      catch (err) { console.log('Something wentWrong', err) }
+    }
+    getOrders()
+  }, [])
+
+
 
 
   return (
@@ -64,6 +65,13 @@ const getOrders = async () => {
 
                   <div className="order-details-grid">
                     {orders.products.map((orderproduct) => {
+                      const ordersAddtocart = async () => {
+                        await axios.post(`/api/cart-items`,{
+                          productId:orderproduct.product.id,
+                          quantity:orderproduct.quantity ||1
+                        })
+                        await loadCart()
+                      }
                       return (
                         <Fragment key={orderproduct.product.id}>
                           <div className="product-image-container">
@@ -80,9 +88,9 @@ const getOrders = async () => {
                             <div className="product-quantity">
                               Quantity: {orderproduct.quantity}
                             </div>
-                            <button className="buy-again-button button-primary">
+                            <button className="buy-again-button button-primary" onClick={ordersAddtocart}>
                               <img className="buy-again-icon" src={'/images/icons/buy-again.png'} />
-                              <span className="buy-again-message">Add to Cart</span>
+                              <span className="buy-again-message" >Add to Cart</span>
                             </button>
                           </div>
 
