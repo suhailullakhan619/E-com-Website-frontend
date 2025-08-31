@@ -9,32 +9,32 @@ import Productsgrid from './Productsgrid'
 
 
 
-function Homepage({cart}){
-const [products,setProducts]=useState([])
-  useEffect(()=>{
-    const getProducts= async ()=>{
-      try{
-const productsResponse=await axios.get('/api/products')
-setProducts(productsResponse.data)
+function Homepage({ cart, loadCart }) {
+  const [products, setProducts] = useState([])
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const productsResponse = await axios.get('/api/products')
+        setProducts(productsResponse.data)
       }
- 
-  catch(err){console.log('Products not fetched',err)}
+
+      catch (err) { console.log('Products not fetched', err) }
     }
-getProducts()
-  },[])
+    getProducts()
+  }, [])
 
 
 
 
-  return(
+  return (
     <>
-    <title>Ecommerce Project</title>
-     <link rel="icon" type="image/svg+xml" href="home-favicon.png" />
-      <Header cart={cart}/>
+      <title>Ecommerce Project</title>
+      <link rel="icon" type="image/svg+xml" href="home-favicon.png" />
+      <Header cart={cart} />
 
-    <div className="home-page">
-     <Productsgrid products={products}/>
-    </div>
+      <div className="home-page">
+        <Productsgrid products={products} loadCart={loadCart} />
+      </div>
     </>
   )
 }

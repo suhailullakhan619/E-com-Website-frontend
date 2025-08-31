@@ -13,24 +13,22 @@ import Pagenotfound from './components/pagenotfound/Pagenotfound'
 
 function App() {
   const [cart, setCart] = useState([])
-  
-  useEffect(() => {
-    const getCart = async () => {
+    const loadCart = async () => {
       try {
         const cartResponse = await axios.get('/api/cart-items?expand=product')
         setCart(cartResponse.data)
       }
       catch (err) { console.log('cart-items not fetched', err) }
     }
-
-    getCart()
+  useEffect(() => {
+    loadCart()
   }, [])
 
   return (
     <>
 
       <Routes>
-        <Route path="/" element={<Homepage cart={cart} />} />
+        <Route path="/" element={<Homepage cart={cart} loadCart={loadCart} />} />
         <Route path="/checkout" element={<Checkoutpage cart={cart} />} />
         <Route path="/orders" element={<Orderpage cart={cart} />} />
         <Route path="/tracking/:orderId/:productId" element={<Trackingpage1 cart={cart} />} />
