@@ -5,19 +5,26 @@ import './Orderpage.css'
 // product image and rating
 import Header from '../header/Header'
 import { Link } from 'react-router-dom'
-import { Fragment, useEffect, useState } from 'react'
-import axios from 'axios'
+import { Fragment, useEffect } from 'react'
 import dayjs from 'dayjs'
 import { amount } from '../../utils/amount'
+import axios from 'axios'
+import { useState } from 'react'
 function Orderpage({ cart }) {
+const [order, setOrders] = useState([])
 
-  const [order, setOrders] = useState([])
+useEffect(()=>{
+const getOrders = async () => {
+        try {
+          const ordersResponse = await axios.get('http://localhost:3000/api/orders?expand=products')
+          setOrders(ordersResponse.data)
+        }
+        catch (err) { console.log('Something wentWrong', err) }
+      }
+      getOrders()
+},[])
+    
 
-  useEffect(() => {
-    axios.get('http://localhost:3000/api/orders?expand=products')
-      .then((res) => setOrders(res.data))
-      .catch((err) => console.log('Something wentWrong', err))
-  }, [])
 
   return (
     <>
@@ -80,7 +87,7 @@ function Orderpage({ cart }) {
                           </div>
 
                           <div className="product-actions">
-                            <Link to="/tracking1">
+                            <Link to={`/tracking/${orders.id}/${orderproduct.productId}`}>
                               <button className="track-package-button button-secondary">
                                 Track package
                               </button>
