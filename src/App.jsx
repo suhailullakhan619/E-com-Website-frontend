@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import api from './lib/api'
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import Homepage from './components/homepage/Homepage'
@@ -15,7 +15,7 @@ function App() {
   const [cart, setCart] = useState([])
     const loadCart = async () => {
       try {
-        const cartResponse = await axios.get('/api/cart-items?expand=product')
+        const cartResponse = await api.get('/api/cart-items?expand=product')
         setCart(cartResponse.data)
       }
       catch (err) { console.log('cart-items not fetched', err) }
