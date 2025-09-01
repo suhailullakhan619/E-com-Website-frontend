@@ -2,7 +2,7 @@ import './Checkout.css'
 import dayjs from 'dayjs'
 import { amount } from '../../utils/amount'
 import DeliveryOptions from './DeliveryOptions'
-import axios from 'axios'
+import api from '../../lib/api'
 
 const OrderSummary = ({ cart, deliveryOption, loadCart }) => {
 
@@ -16,12 +16,12 @@ const OrderSummary = ({ cart, deliveryOption, loadCart }) => {
         })
 
         const deleteQuantity=async()=> {
-         await axios.delete(`/api/cart-items/${cartitem.productId}`)
+         await api.delete(`/api/cart-items/${cartitem.productId}`)
          await loadCart()
         }
 
         const updateQuantity=async (newQuantity)=>{
-          await axios.put(`/api/cart-items/${cartitem.productId}`,{
+          await api.put(`/api/cart-items/${cartitem.productId}`,{
             quantity:newQuantity,
           });
           await loadCart()

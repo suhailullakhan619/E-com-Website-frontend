@@ -1,5 +1,5 @@
 import './Homepage.css'
-import axios from 'axios';
+import api from '../../lib/api';
 import { amount } from '../../utils/amount';
 import { useRef, useState } from 'react';
 import addedtocartMsg from '../../utils/addedtocart';
@@ -8,7 +8,7 @@ function Product({ products, loadCart }) {
   const buttonRef=useRef(null)
   const updateQuantity = async () => {
 
-    await axios.post('/api/cart-items', {
+    await api.post('/api/cart-items', {
       productId: products.id,
       quantity: quantity
 

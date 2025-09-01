@@ -1,11 +1,8 @@
 import './Homepage.css'
-import axios from 'axios'
 import { useEffect, useState } from 'react'
-
-// logo
-
 import Header from '../header/Header'
 import Productsgrid from './Productsgrid'
+import api from '../../lib/api'
 
 
 
@@ -14,7 +11,7 @@ function Homepage({ cart, loadCart }) {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const productsResponse = await axios.get('/api/products')
+        const productsResponse = await api.get('/api/products')
         setProducts(productsResponse.data)
       }
 

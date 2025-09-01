@@ -5,8 +5,7 @@ import Header from '../header/Header'
 import { Link,useParams } from 'react-router-dom'
 import dayjs from 'dayjs'
 import { useEffect } from 'react'
-import axios from 'axios'
-
+import api from '../../lib/api'
 const Trackingpage1 = ({ cart }) => {
  const [orderload,setOrderload]=useState(null)
   const {orderId,productId}=useParams();
@@ -16,7 +15,7 @@ const Trackingpage1 = ({ cart }) => {
 
     const getOrderandProductId= async()=>{
       try{
-      const response=await axios.get(`http://localhost:3000/api/orders/${orderId}?expand=products`)
+      const response=await api.get(`http://localhost:3000/api/orders/${orderId}?expand=products`)
          setOrderload(response.data)
       }
 catch(err){

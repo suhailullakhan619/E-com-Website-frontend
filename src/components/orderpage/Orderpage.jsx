@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import { Fragment, useEffect } from 'react'
 import dayjs from 'dayjs'
 import { amount } from '../../utils/amount'
-import axios from 'axios'
+import api from '../../lib/api'
 import { useState } from 'react'
 function Orderpage({ cart, loadCart }) {
   const [order, setOrders] = useState([])
@@ -16,7 +16,7 @@ function Orderpage({ cart, loadCart }) {
   useEffect(() => {
     const getOrders = async () => {
       try {
-        const ordersResponse = await axios.get('http://localhost:3000/api/orders?expand=products')
+        const ordersResponse = await api.get('/api/orders?expand=products')
         setOrders(ordersResponse.data)
       }
       catch (err) { console.log('Something wentWrong', err) }
@@ -66,7 +66,7 @@ function Orderpage({ cart, loadCart }) {
                   <div className="order-details-grid">
                     {orders.products.map((orderproduct) => {
                       const ordersAddtocart = async () => {
-                        await axios.post(`/api/cart-items`,{
+                        await api.post(`/api/cart-items`,{
                           productId:orderproduct.product.id,
                           quantity:orderproduct.quantity ||1
                         })

@@ -1,7 +1,7 @@
 import './Checkout.css'
 import { amount } from '../../utils/amount';
 import dayjs from 'dayjs';
-import axios from 'axios';
+import api from '../../lib/api';
 
 const DeliveryOptions = ({deliveryOption,cartitem,loadCart}) => {
 
@@ -16,7 +16,7 @@ const DeliveryOptions = ({deliveryOption,cartitem,loadCart}) => {
           priceString = `${amount(option.priceCents)}-shipping`;
         }
         const updateDeliveryoptions= async()=>{
-         await axios.put(`/api/cart-items/${cartitem.productId}`,{
+         await api.put(`/api/cart-items/${cartitem.productId}`,{
         deliveryOptionId: option.id
        })
         await loadCart()
