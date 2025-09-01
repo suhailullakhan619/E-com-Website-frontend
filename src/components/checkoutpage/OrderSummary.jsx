@@ -22,12 +22,12 @@ const OrderSummary = ({ cart, deliveryOption, loadCart }) => {
     ); */}
 
         const deleteQuantity=async()=> {
-         await api.delete(`/api/cart-items/${cartitem.id}`)
+         await api.delete(`/api/cart-items/${cartitem.productId}`)
          await loadCart()
         }
 
         const updateQuantity=async (newQuantity)=>{
-          await api.put(`/api/cart-items/${cartitem.id}`,{
+          await api.put(`/api/cart-items/${cartitem.productId}`,{
             quantity:newQuantity,
           });
           await loadCart()

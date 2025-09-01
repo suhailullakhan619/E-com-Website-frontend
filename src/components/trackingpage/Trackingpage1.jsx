@@ -15,7 +15,7 @@ const Trackingpage1 = ({ cart }) => {
 
     const getOrderandProductId= async()=>{
       try{
-      const response=await api.get(`http://localhost:3000/api/orders/${orderId}?expand=products`)
+      const response=await api.get(`/api/orders/${orderId}?expand=products`)
          setOrderload(response.data)
       }
 catch(err){
