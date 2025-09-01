@@ -14,14 +14,20 @@ const OrderSummary = ({ cart, deliveryOption, loadCart }) => {
         const selectDeliveryOption = deliveryOption.find((deliveryOption) => {
           return deliveryOption.id === cartitem.deliveryOptionId;
         })
+         {/* {cart.length === 0 && <p>Your cart is empty</p>}
+
+       {cart.map((cartitem) => {
+    const selectDeliveryOption = deliveryOption.find(
+      (opt) => opt.id === cartitem.deliveryOptionId
+    ); */}
 
         const deleteQuantity=async()=> {
-         await api.delete(`/api/cart-items/${cartitem.productId}`)
+         await api.delete(`/api/cart-items/${cartitem.id}`)
          await loadCart()
         }
 
         const updateQuantity=async (newQuantity)=>{
-          await api.put(`/api/cart-items/${cartitem.productId}`,{
+          await api.put(`/api/cart-items/${cartitem.id}`,{
             quantity:newQuantity,
           });
           await loadCart()
