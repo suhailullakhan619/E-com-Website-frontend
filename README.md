@@ -7,7 +7,7 @@ This project is a modern, responsive e-commerce website frontend designed to pro
 ## Live Demo
 
 Explore the live demo of the application here:  
-[E-Commerce Website Frontend](https://e-com-website-frontend-2dgm1y5zh.vercel.app)
+[E-Commerce Website Frontend](https://e-com-website-frontend.vercel.app/)
 
 ## Features
 
