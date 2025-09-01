@@ -9,9 +9,7 @@ const Productsgrid = ({ products,loadCart }) => {
       {products.map((products) => {
      
         return (
-          <>
             <Product key={products.id} products={products} loadCart={loadCart}/>
-          </>
 
         )
       })}

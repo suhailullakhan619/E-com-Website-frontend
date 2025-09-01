@@ -68,7 +68,7 @@ function Orderpage({ cart, loadCart }) {
                       const ordersAddtocart = async () => {
                         await api.post(`/api/cart-items`,{
                           productId:orderproduct.product.id,
-                          quantity:orderproduct.quantity ||1
+                          quantity:1
                         })
                         await loadCart()
                       }
