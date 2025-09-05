@@ -1,13 +1,14 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy,Suspense } from 'react'
 import api from './lib/api'
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
-import Homepage from './components/homepage/Homepage'
-import Checkoutpage from './components/checkoutpage/Checkoutpage'
-import Orderpage from './components/orderpage/Orderpage'
-import Trackingpage1 from './components/trackingpage/Trackingpage1'
-import Pagenotfound from './components/pagenotfound/Pagenotfound'
+import spin from './assets/spin.gif'
+const Homepage=lazy(()=>import('./components/homepage/Homepage'))  
+const Checkoutpage =lazy(()=>import('./components/checkoutpage/Checkoutpage')) 
+const Orderpage=lazy(()=>import( './components/orderpage/Orderpage'))
+const Trackingpage1=lazy(()=>import('./components/trackingpage/Trackingpage1')) 
+const Pagenotfound=lazy(()=>import( './components/pagenotfound/Pagenotfound'))
 
 
 
@@ -26,7 +27,7 @@ function App() {
 
   return (
     <>
-
+<Suspense  fallback={<div className='spinnerdiv'><img className='spinner' src={spin} alt='spinner'></img></div>}>
       <Routes>
         <Route path="/" element={<Homepage cart={cart} loadCart={loadCart} />} />
         <Route path="/checkout" element={<Checkoutpage cart={cart} loadCart={loadCart} />} />
@@ -34,7 +35,7 @@ function App() {
         <Route path="/tracking/:orderId/:productId" element={<Trackingpage1 cart={cart} />} />
         <Route path="*" element={<Pagenotfound />} />
       </Routes>
-
+</Suspense>
     </>
 
   )
