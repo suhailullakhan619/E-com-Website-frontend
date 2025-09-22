@@ -1,5 +1,5 @@
 import './Homepage.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Header from '../header/Header'
 import Productsgrid from './Productsgrid'
 import api from '../../lib/api'
@@ -28,7 +28,9 @@ function Homepage({ cart, loadCart }) {
   const lastIndex=startIndex+itemsperPage;
   const currentpage=products.slice(startIndex,lastIndex)
 
-
+function scroll(){
+  window.scrollTo({top:0,behavior:'smooth'})
+}
 
   return (
     <>
@@ -37,14 +39,28 @@ function Homepage({ cart, loadCart }) {
       <Header cart={cart} />
 
       <div className="home-page">
-        <Productsgrid  loadCart={loadCart} currentpage={currentpage} />
+        <Productsgrid   loadCart={loadCart} currentpage={currentpage} />
       </div>
       <div className='paginationDiv'>
-        {pages!==1 && <div className='leftandrightbtn' onClick={()=>setPages(pages-1)}>◀️</div>  }
+        {pages!==1 && 
+        <div className='leftandrightbtn' 
+        onClick={()=>{
+          setPages(pages-1);
+          scroll()}}>◀️</div>  }
          {Array.from({length:totalpages},(_,i)=>{
-          return <button className='pagebtn' style={{background:pages===i+1?'#198754':'lightgrey',color:pages===i+1?'white':'black'}} key={i} onClick={()=>(setPages(i+1))}>{i+1}</button>
+          return <button className='pagebtn' 
+          style={{background:pages===i+1?'#198754':'lightgrey',
+            color:pages===i+1?'white':'black'}} 
+            key={i} 
+            onClick={()=>{
+            setPages(i+1);
+            scroll()}}>{i+1}</button>
          })}
-         {pages!==totalpages && <div  className='leftandrightbtn' onClick={()=>setPages(pages+1)}>▶️</div>}
+         {pages!==totalpages && 
+         <div  className='leftandrightbtn' 
+         onClick={()=>{
+          setPages(pages+1);
+          scroll();}}>▶️</div>}
         
       </div>
     </>
