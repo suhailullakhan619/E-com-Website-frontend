@@ -1,5 +1,5 @@
 import './Homepage.css'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from '../header/Header'
 import Productsgrid from './Productsgrid'
 import api from '../../lib/api'
@@ -10,6 +10,7 @@ function Homepage({ cart, loadCart }) {
   const [products, setProducts] = useState([]);
   const [pages,setPages]=useState(1);
   const [totalpages,setTotalpages]=useState();
+  const [isHovered,setIsHovered]=useState(null)
   const itemsperPage=10;
   useEffect(() => {
     const getProducts = async () => {
@@ -49,12 +50,13 @@ function scroll(){
           scroll()}}>◀️</div>  }
          {Array.from({length:totalpages},(_,i)=>{
           return <button className='pagebtn' 
-          style={{background:pages===i+1?'#198754':'lightgrey',
-            color:pages===i+1?'white':'black'}} 
+          style={{background:pages===i+1?'#198754':isHovered===i?'#198754':'lightgrey',
+            color:pages===i+1?'white':'black',transition:'all 0.2s'}} 
             key={i} 
-            onClick={()=>{
-            setPages(i+1);
-            scroll()}}>{i+1}</button>
+            onClick={()=>{setPages(i+1);scroll();}} 
+         onMouseEnter={()=>setIsHovered(i)}
+        onMouseLeave={()=>setIsHovered(null)}
+        >{i+1}</button> 
          })}
          {pages!==totalpages && 
          <div  className='leftandrightbtn' 

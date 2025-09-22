@@ -174,3 +174,6 @@ opacity: 1;
   border-radius: 10px;
   border: none;
 }
+.pagebtn:hover{
+  background-color: #198754;
+}
