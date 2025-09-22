@@ -1,6 +1,6 @@
 
 import Product from './Product'
-const Productsgrid = ({ products,loadCart,currentpage }) => {
+const Productsgrid = ({ loadCart,currentpage }) => {
 
 
 

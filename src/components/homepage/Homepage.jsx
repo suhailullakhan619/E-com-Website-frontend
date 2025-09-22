@@ -37,7 +37,7 @@ function Homepage({ cart, loadCart }) {
       <Header cart={cart} />
 
       <div className="home-page">
-        <Productsgrid products={products} loadCart={loadCart} currentpage={currentpage} />
+        <Productsgrid  loadCart={loadCart} currentpage={currentpage} />
       </div>
       <div className='paginationDiv'>
         {pages!==1 && <div className='leftandrightbtn' onClick={()=>setPages(pages-1)}>◀️</div>  }
