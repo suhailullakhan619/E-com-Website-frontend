@@ -9,7 +9,7 @@ import api from '../../lib/api'
 function Homepage({ cart, loadCart }) {
   const [products, setProducts] = useState([]);
   const [pages,setPages]=useState(1);
-  const [totalpages,setTotalpages]=useState();
+  const [totalpages,setTotalpages]=useState(0);
   const [isHovered,setIsHovered]=useState(null)
   const itemsperPage=10;
   useEffect(() => {
@@ -58,7 +58,7 @@ function scroll(){
         onMouseLeave={()=>setIsHovered(null)}
         >{i+1}</button> 
          })}
-         {pages!==totalpages && 
+         {totalpages>0 && pages!==totalpages && 
          <div  className='leftandrightbtn' 
          onClick={()=>{
           setPages(pages+1);
