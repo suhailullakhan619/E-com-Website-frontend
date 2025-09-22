@@ -7,12 +7,16 @@ import api from '../../lib/api'
 
 
 function Homepage({ cart, loadCart }) {
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
+  const [pages,setPages]=useState(1);
+  const [totalpages,setTotalpages]=useState();
+  const itemsperPage=10;
   useEffect(() => {
     const getProducts = async () => {
       try {
         const productsResponse = await api.get('/api/products')
         setProducts(productsResponse.data)
+        setTotalpages(Math.ceil(productsResponse.data.length/itemsperPage))
       }
 
       catch (err) { console.log('Products not fetched', err) }
@@ -20,6 +24,9 @@ function Homepage({ cart, loadCart }) {
     getProducts()
   }, [])
 
+  const startIndex=(pages-1)*itemsperPage;
+  const lastIndex=startIndex+itemsperPage;
+  const currentpage=products.slice(startIndex,lastIndex)
 
 
 
@@ -30,7 +37,15 @@ function Homepage({ cart, loadCart }) {
       <Header cart={cart} />
 
       <div className="home-page">
-        <Productsgrid products={products} loadCart={loadCart} />
+        <Productsgrid products={products} loadCart={loadCart} currentpage={currentpage} />
+      </div>
+      <div className='paginationDiv'>
+        {pages!==1 && <div className='leftandrightbtn' onClick={()=>setPages(pages-1)}>◀️</div>  }
+         {Array.from({length:totalpages},(_,i)=>{
+          return <button className='pagebtn' style={{background:pages===i+1?'#198754':'lightgrey',color:pages===i+1?'white':'black'}} key={i} onClick={()=>(setPages(i+1))}>{i+1}</button>
+         })}
+         {pages!==totalpages && <div  className='leftandrightbtn' onClick={()=>setPages(pages+1)}>▶️</div>}
+        
       </div>
     </>
   )
