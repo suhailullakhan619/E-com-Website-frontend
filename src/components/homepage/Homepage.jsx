@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import Header from '../header/Header'
 import Productsgrid from './Productsgrid'
 import api from '../../lib/api'
-
+import spin from '../../assets/spin.gif'
 
 
 function Homepage({ cart, loadCart }) {
@@ -11,6 +11,7 @@ function Homepage({ cart, loadCart }) {
   const [pages,setPages]=useState(1);
   const [totalpages,setTotalpages]=useState(0);
   const [isHovered,setIsHovered]=useState(null)
+  const [isLoading,setIsLoading]=useState(true);
   const itemsperPage=10;
   useEffect(() => {
     const getProducts = async () => {
@@ -21,6 +22,9 @@ function Homepage({ cart, loadCart }) {
       }
 
       catch (err) { console.log('Products not fetched', err) }
+      finally{
+        setIsLoading(false)
+      }
     }
     getProducts()
   }, [])
@@ -40,7 +44,11 @@ function scroll(){
       <Header cart={cart} />
 
       <div className="home-page">
-        <Productsgrid   loadCart={loadCart} currentpage={currentpage} />
+       {isLoading?(
+       <div className='spinner1'>
+       <img src={spin} alt='spinner'></img>
+       </div>
+       ):(<Productsgrid   loadCart={loadCart} currentpage={currentpage} />)} 
       </div>
       <div className='paginationDiv'>
         {pages!==1 && 

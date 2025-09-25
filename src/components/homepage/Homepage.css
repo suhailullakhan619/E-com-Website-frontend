@@ -177,3 +177,13 @@ opacity: 1;
 .pagebtn:hover{
   background-color: #198754;
 }
+.spinner1{
+display: flex;
+align-items: center;
+justify-content: center;
+height: 100vh;
+}
+.spinner1 img {
+  width: 70px;   
+  height: 70px;
+}
