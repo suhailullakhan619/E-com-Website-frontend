@@ -51,16 +51,22 @@ const OrderSummary = ({ cart, deliveryOption, loadCart }) => {
                   <div className="product-price">
                     {amount(cartitem.product.priceCents)}
                   </div>
-                  <div className="product-quantity">
+                  <div className="product-quantity" style={{display:'flex',gap:'10px'}}>
                     <span>
-                      Quantity: <span className="quantity-label">{cartitem.quantity}</span>
-                    </span>
-                    <span className="update-quantity-link link-primary" onClick={()=>updateQuantity(cartitem.quantity+1)}>
-                      Update
-                    </span>
-                    <span className="delete-quantity-link link-primary" onClick={deleteQuantity}>
-                      Delete
-                    </span>
+                      Quantity: 
+                    </span> 
+                    <button style={{fontSize:'16px'}} onClick={()=>updateQuantity(cartitem.quantity+1)}>
+                      &#43;
+                    </button>
+                    <span className="quantity-label">{cartitem.quantity}</span>
+                    <button style={{fontSize:'16px'}}   onClick={()=>updateQuantity(cartitem.quantity-1)}>
+                      &#8722;
+                    </button>
+                   
+           
+                    <button  style={{color:'black'}} onClick={deleteQuantity}>
+                       Delete Item
+                    </button>
                   </div>
                 </div>
 
