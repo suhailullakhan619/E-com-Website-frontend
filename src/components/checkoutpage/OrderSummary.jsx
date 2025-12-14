@@ -51,7 +51,7 @@ const OrderSummary = ({ cart, deliveryOption, loadCart }) => {
                   <div className="product-price">
                     {amount(cartitem.product.priceCents)}
                   </div>
-                  <div className="product-quantity" style={{display:'flex',gap:'10px'}}>
+                  <div className="product-quantity" style={{display:'flex',gap:'10px',alignItems:'center',marginBottom:'10px'}}>
                     <span>
                       Quantity: 
                     </span> 
@@ -64,10 +64,11 @@ const OrderSummary = ({ cart, deliveryOption, loadCart }) => {
                     </button>
                    
            
-                    <button  style={{color:'black'}} onClick={deleteQuantity}>
+                   
+                  </div>
+                   <button  style={{color:'black'}} onClick={deleteQuantity}>
                        Delete Item
                     </button>
-                  </div>
                 </div>
 
                 <DeliveryOptions cartitem={cartitem} deliveryOption={deliveryOption} loadCart={loadCart} />
