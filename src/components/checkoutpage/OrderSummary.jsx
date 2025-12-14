@@ -55,12 +55,12 @@ const OrderSummary = ({ cart, deliveryOption, loadCart }) => {
                     <span>
                       Quantity: 
                     </span> 
-                    <button style={{fontSize:'16px'}} onClick={()=>updateQuantity(cartitem.quantity+1)}>
-                      &#43;
-                    </button>
-                    <span className="quantity-label">{cartitem.quantity}</span>
                     <button style={{fontSize:'16px'}}   onClick={()=>updateQuantity(cartitem.quantity-1)}>
                       &#8722;
+                    </button>
+                    <span className="quantity-label">{cartitem.quantity}</span>
+                    <button style={{fontSize:'16px'}} onClick={()=>updateQuantity(cartitem.quantity+1)}>
+                      &#43;
                     </button>
                    
            
